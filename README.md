@@ -1,6 +1,6 @@
 # World Cup EV Model
 
-A probabilistic expected-value engine that played a 104-match World Cup prediction pool for me — fetching live odds, modeling every match, and submitting the optimal bet. It won first place by a wide margin winning 800₪ first prize on a 100₪ investment.
+A probabilistic expected-value engine that played a 104-match World Cup prediction pool for me and won first place and **money** — fetching live odds, modeling every match, and submitting the optimal bet. It won first place by a wide margin winning 800₪ first prize on a 100₪ investment.
 
 ## What it does
 
