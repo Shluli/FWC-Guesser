@@ -1,0 +1,21 @@
+function comebackOdds(hxg, axg, sims) {
+  sims = sims || 100000;
+  var hBase = hxg / 90, aBase = axg / 90, cb = 0;
+  var chaseBoost = 1.1;  // trailing team attacks harder
+  var leadDamp = 0.95;    // leading team eases off
+  for (var i = 0; i < sims; i++) {
+    var hgs = 0, ags = 0, hLosing = false, aLosing = false;
+    for (var m = 0; m < 90; m++) {
+      if (ags < hgs) aLosing = true;
+      if (ags > hgs) hLosing = true;
+      var hRate = hBase, aRate = aBase;
+      if (hgs < ags) { hRate = hBase * chaseBoost; aRate = aBase * leadDamp; }
+      else if (ags < hgs) { aRate = aBase * chaseBoost; hRate = hBase * leadDamp; }
+      if (Math.random() < hRate) hgs++;
+      if (Math.random() < aRate) ags++;
+    }
+    if (hgs > ags && hLosing) cb++;
+    else if (ags > hgs && aLosing) cb++;
+  }
+  return cb / sims;
+}
